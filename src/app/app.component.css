@@ -10,15 +10,22 @@
   width: 80%;
   margin: 0 auto;
 }
+
 h1,
 h3,
 h4 {
   text-align: center;
 }
 
+button {
+  display: flex;
+  margin: auto;
+}
+
 .content table tr:hover {
   background-color: transparent;
 }
+
 .airplane-tile:hover {
   cursor: pointer;
 }
