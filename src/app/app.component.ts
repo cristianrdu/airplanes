@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { BoardService } from './board.service'
 import { Board } from './board.model'
 import { MatchScore } from './match-score.model';
@@ -17,7 +17,7 @@ export class AppComponent {
   score: number = 0;
   secondsPlayed: number = 0;
   interval: any;
-  matchScoreList: MatchScore[]= [];
+  matchScoreList: MatchScore[] = [];
   constructor(
     private boardService: BoardService,
   ) {
@@ -62,7 +62,9 @@ export class AppComponent {
     this.board.tiles[row][col].value = "X";
     return this;
   }
-
+  /**
+   * Initialize a new board to be used in the game 
+   */
   createBoard() : AppComponent {
     this.boardService.createBoard(BOARD_SIZE);
     return this;
@@ -81,7 +83,9 @@ export class AppComponent {
     }
     return true;
   }
-
+  /**
+   * board property
+   */
   get board () : Board {
     return this.boardService.getBoard()
   }
@@ -105,6 +109,7 @@ export class AppComponent {
    */
   private stopTimer(): void {
     clearInterval(this.interval);
+    // resets the seconds for next game
     this.secondsPlayed = 0;
   }
   /**
