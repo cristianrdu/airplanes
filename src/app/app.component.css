@@ -10,9 +10,23 @@
   width: 80%;
   margin: 0 auto;
 }
+h1,
+h3,
+h4 {
+  text-align: center;
+}
+
 .content table tr:hover {
   background-color: transparent;
 }
 .airplane-tile:hover {
   cursor: pointer;
+}
+
+.winner-section {
+  height: 150px;
+}
+
+.game-list {
+  margin-top: 50px;
 }

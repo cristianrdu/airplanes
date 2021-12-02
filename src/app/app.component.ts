@@ -67,7 +67,11 @@ export class AppComponent {
     this.boardService.createBoard(BOARD_SIZE);
     return this;
   }
-
+  /**
+   * Checks if the given tile is eligible to be struck
+   * @param tile given tile
+   * @returns {boolean} of the check
+   */
   checkValidHit(tile: any) : boolean {
     if (!this.playable) {
       return false;

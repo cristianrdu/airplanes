@@ -4,40 +4,49 @@
       <h1 class="title">Airplanes</h1>
 
       <hr>
+      <div class="winner-section">
+        <section *ngIf="!playable">
+          <h1>
+            You won the game!
+          </h1>
+          <button (click)="resetGame()">
+            Play again
+          </button>
+        </section>
+      </div>
 
-      <section *ngIf="!playable">
-        <h1>
-          You won the game!
-        </h1>
-        <button (click)="resetGame()">
-          Play again
-        </button>
-      </section>
-
-        <div >
-          <table>
-            <tr *ngFor="let row of board.tiles; let j = index">
-              <td *ngFor="let col of row; let k = index"
-              (click) = "strike($event)"
-              [style.background-color] = "col.used ? '' : 'transparent'"
-              [class.win] = "col.status == 'win'" [class.fail] = "col.status !== 'win'"
-              class="airplane-tile" id="t{{j}}{{k}}">
+      <div >
+        <table>
+          <tr *ngFor="let row of board.tiles; let j = index">
+            <td *ngFor="let col of row; let k = index"
+            (click) = "strike($event)"
+            [style.background-color] = "col.used ? '' : 'transparent'"
+            [class.win] = "col.status == 'win'" [class.fail] = "col.status !== 'win'"
+            class="airplane-tile" id="t{{j}}{{k}}">
               {{ col.value == "X" ? "X" : "" }}
             </td>
           </tr>
         </table>
       </div>
 
-                  <div class="game-list" *ngIf="score > 0">
-                    Previous Games
-                    <ol>
-                      <li *ngFor="let matchScore of matchScoreList">
-                        <span> Date: {{matchScore.date}}</span>
-                        <span> || Shots fired: {{matchScore.shotsFired}}</span>
-                        <span> || Seconds played: {{matchScore.secondsPlayed}}</span>
-                      </li>
-                    </ol>
-                  </div>
+      <div class="game-list" *ngIf="score > 0">
+        <h3 class="game-list-title">
+          Previous Games
+        </h3>
+
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Shots Fired</th>
+            <th>Seconds Played</th>
+          </tr>
+          <tr *ngFor="let matchScore of matchScoreList">
+            <td>{{matchScore.date}}</td>
+            <td>{{matchScore.shotsFired}}</td>
+            <td>{{matchScore.secondsPlayed}}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>
