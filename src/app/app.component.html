@@ -7,7 +7,7 @@
       <div class="winner-section">
         <section *ngIf="!playable">
           <h1>
-            You won the game!
+            You won the game with {{board.shotsFired}} shots!
           </h1>
           <button (click)="resetGame()">
             Play again
