@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+.container {
+  padding: 50px;
+}
+.airplane-tile {
+  color: black;
+  width: 260px;
+}
+.win {
+  background-color: #23d160;
+  color: #fff;
+}
+.fail {
+  background-color: #ff3860;
+  color: #fff;
+}

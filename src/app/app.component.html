@@ -1,0 +1,43 @@
+<div class="section">
+  <div class="container">
+    <div class="content">
+      <h1 class="title">Airplanes</h1>
+
+      <hr>
+
+      <section *ngIf="!playable">
+        <h1>
+          You won the game!
+        </h1>
+        <button (click)="resetGame()">
+          Play again
+        </button>
+      </section>
+
+        <div >
+          <table>
+            <tr *ngFor="let row of board.tiles; let j = index">
+              <td *ngFor="let col of row; let k = index"
+              (click) = "strike($event)"
+              [style.background-color] = "col.used ? '' : 'transparent'"
+              [class.win] = "col.status == 'win'" [class.fail] = "col.status !== 'win'"
+              class="airplane-tile" id="t{{j}}{{k}}">
+              {{ col.value == "X" ? "X" : "" }}
+            </td>
+          </tr>
+        </table>
+      </div>
+
+                  <div class="game-list" *ngIf="score > 0">
+                    Previous Games
+                    <ol>
+                      <li *ngFor="let matchScore of matchScoreList">
+                        <span> Date: {{matchScore.date}}</span>
+                        <span> || Shots fired: {{matchScore.shotsFired}}</span>
+                        <span> || Seconds played: {{matchScore.secondsPlayed}}</span>
+                      </li>
+                    </ol>
+                  </div>
+    </div>
+  </div>
+</div>
